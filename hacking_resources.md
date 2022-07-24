@@ -1,12 +1,10 @@
 # Hacking Resources
 
-## XXE
+- [Practical Ethical Hacking](https://github.com/TCM-Course-Resources/Practical-Ethical-Hacking-Resources) (I have the full course on udemy)
 
 ## XSS
 
-## SQLi
-
-## GQLi
+- [Good XSS dude](https://www.youtube.com/c/STOKfredrik/videos)
 
 ## Payloads/ Lists
 
