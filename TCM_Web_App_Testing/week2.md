@@ -13,4 +13,4 @@
 - Filtering : making sure things like `<script>` becomes `script`
 - Validation : remove all `<script>` from the query
 - Sanitization : combining all of the above
-- Secure flags for `Set-Cookie`
+- Secure flags for `Set-Cookie` prevents cookie from being seen in plain text (bit unsure)
