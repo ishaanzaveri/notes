@@ -49,7 +49,7 @@ the file is called `.hidden` and the password is `pIwrPrtPN36QITSp3EQaw936yaFoFg
 ## Level 4
 
 We use ssh again to enter the machine
-`ssh -p 2220 bandit3@bandit.labs.overthewire.org`
+`ssh -p 2220 bandit4@bandit.labs.overthewire.org`
 password: `pIwrPrtPN36QITSp3EQaw936yaFoFgAB`
 
 we `cd inhere` and then do `ls`
@@ -77,3 +77,94 @@ bandit4@bandit:~/inhere$ file ./-file07
 ```
 
 we then cat `file07` and get the password : `koReBOKuIDDepwhWk7jZC0RTdopnAYKh`
+
+## Level 5
+
+We use ssh again to enter the machine
+`ssh -p 2220 bandit5@bandit.labs.overthewire.org`
+password: `koReBOKuIDDepwhWk7jZC0RTdopnAYKh`
+
+we `cd inhere`
+
+The prompt says the file we are finding is
+
+- human-readable
+- 1033 bytes in size
+- not executable
+
+Hence we can use `find -size 1033c ! -executable`
+it gives us `./maybehere07/.file2` so we `cat ./maybehere07/.file2`
+
+the password is `DXjZPULLxYr17uwoI01bNLQbtFemEgo7`
+
+## Level 6
+
+We use ssh again to enter the machine
+`ssh -p 2220 bandit6@bandit.labs.overthewire.org`
+password: `DXjZPULLxYr17uwoI01bNLQbtFemEgo7`
+
+it says somewhere on the server with these properties
+
+- owned by user bandit7
+- owned by group bandit6
+- 33 bytes in size
+
+so I did `cd ../..` and `find -user bandit7 -group bandit6 -size 33c`
+turns out `./var/lib/dpkg/info/bandit7.password` had the password
+
+so we cat it ` cat ./var/lib/dpkg/info/bandit7.password`
+password : `HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs`
+
+## Level 7
+
+We use ssh again to enter the machine
+`ssh -p 2220 bandit7@bandit.labs.overthewire.org`
+password: `HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs`
+
+We use grep to find it `cat data.txt | grep millionth`
+password: `cvX2JJa4CFALtqS87jk27qwqGhBM9plV`
+
+## Level 8
+
+We use ssh again to enter the machine
+`ssh -p 2220 bandit8@bandit.labs.overthewire.org`
+password: `cvX2JJa4CFALtqS87jk27qwqGhBM9plV`
+
+we are finding a line that only occues once so we use `sort data.txt | uniq -c`
+
+password : `UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR`
+
+## Level 9
+
+We use ssh again to enter the machine
+`ssh -p 2220 bandit9@bandit.labs.overthewire.org`
+password: `UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR`
+
+We use `cat data.txt | strings | grep =`
+and get
+
+```
+========== the*2i"4
+=:G e
+========== password
+<I=zsGi
+Z)========== is
+A=|t&E
+Zdb=
+c^ LAh=3G
+*SF=s
+&========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+S=A.H&^
+```
+
+hence the password is `truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk`
+
+## Level 10
+
+we use ` cat data.txt | base64 -d`
+to get
+
+```
+The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+```
